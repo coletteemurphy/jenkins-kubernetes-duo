@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
         stage('Delete old'){
-            steps{
+            steps {
                 sh 'kubectl delete -f .'
             }    
         }
