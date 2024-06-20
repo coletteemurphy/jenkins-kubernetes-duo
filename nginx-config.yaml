@@ -7,9 +7,9 @@ spec:
   selector:
     app: nginx
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+    - protocol: TCP
+      port: 80
+      targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -32,17 +32,19 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx-container
-        image: nginx:latest
-        ports:
-        - containerPort: 80
-        volumeMounts:
-        - name: nginx-config-vol
-          mountPath: /etc/nginx
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-config-vol
+              mountPath: /etc/nginx
       volumes:
-      - name: nginx-config-vol
-        configMap:
-          name: nginx-configapiVersion: v1
+        - name: nginx-config-vol
+          configMap:
+            name: nginx-config
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-cm
