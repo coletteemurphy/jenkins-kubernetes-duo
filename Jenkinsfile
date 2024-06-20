@@ -4,11 +4,11 @@ pipeline {
         VERSION = "V1"
     }
     stages {
-        stage('Delete old'){
+    /* stage('Delete old'){
             steps {
                 sh 'kubectl delete -f . ||  true'
             }    
-        }
+        }*/
         stage('deploy config maps'){
             steps {
                 sh "kubectl apply -f app-cm.yaml"
