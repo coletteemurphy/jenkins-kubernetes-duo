@@ -5,7 +5,9 @@ pipeline {
     }
     stages {
         stage('Delete old'){
-            sh 'kubectl delete -f .'
+            steps{
+                sh 'kubectl delete -f .'
+            }    
         }
         stage('Deploy App') {
             steps {
