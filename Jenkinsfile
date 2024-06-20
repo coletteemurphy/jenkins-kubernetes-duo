@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-
+        VERSION = "V1"
     }
     stages {
         stage('Deploy App') {
@@ -12,6 +12,8 @@ pipeline {
         stage('Deploy NGINX') {
             steps {
                sh "kubectl apply -f nginx-config.yaml" 
+               
+
             }
         }
     }
