@@ -18,8 +18,8 @@ pipeline {
             steps {
                sh "kubectl apply -f nginx-config.yaml" 
                sh "kubectl apply -f app-config.yaml"
-               sleep 10
-               kubectl get svc
+               sh "sleep 10"
+               sh "kubectl get svc"
 
             }
         }
