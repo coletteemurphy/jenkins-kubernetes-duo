@@ -9,6 +9,11 @@ pipeline {
                 sh 'kubectl delete -f . ||  true'
             }    
         }
+        stage('deploy config maps'){
+            steps {
+                sh "kubectl apply -f app-cm.yaml"
+            }
+        }
         stage('Deploy App') {
             steps {
                 sh "kubectl apply -f flask-app.yaml"
